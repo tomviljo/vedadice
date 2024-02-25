@@ -77,6 +77,8 @@ def main():
         os.mkdir(output_dir)
 
         shutil.copytree('assets', f'{output_dir}/assets')
+        for file in os.listdir('favicon'):
+            shutil.copy(f'favicon/{file}', f'{output_dir}/{file}')
 
         # Make index.html
 
