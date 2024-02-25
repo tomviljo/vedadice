@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Redirecting...</title>
+    <style>
+      body {
+        background-color: #ffeecc;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      const url_prefix = "${url_prefix}";
+      const url_suffix = "${url_suffix}";
+      const compressed_paths = "${compressed_paths}";
+      const debug_links = ${debug_links};
+      urls = [];
+      for (path of compressed_paths.split(",")) {
+        let index = path.search(/\d+[*]\d+/);
+        if (index == -1) {
+          urls.push(url_prefix + path + url_suffix);
+        } else {
+          let range_prefix = path.slice(0, index);
+          let range_tokens = path.substr(index).split("*");
+          for (i = parseInt(range_tokens[0]); i <= parseInt(range_tokens[1]); i++) {
+            urls.push(url_prefix + range_prefix + i + url_suffix);
+          }
+        }
+      }
+      if (debug_links) {
+        for (url of urls) {
+          let link = document.createElement("a");
+          link.href = url;
+          link.text = url;
+          let div = document.createElement("div");
+          div.appendChild(link);
+          document.body.appendChild(div);
+        }
+      } else {
+        let url = urls[Math.floor(Math.random() * urls.length)];
+        document.body.innerHTML = "Redirecting to <a href=\"" + url + "\">" + url + "</a>...";
+        window.location.replace(url);
+      }
+    </script>
+  </body>
+</html>

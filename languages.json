@@ -1,0 +1,160 @@
+[
+  {
+    "id": "en",
+    "name": "English",
+    "bg": {
+      "name": "Random verse from Bhagavad-gītā As It Is"
+    },
+    "bg1972": {
+      "name": "Random verse from Bhagavad-gītā As It Is (1972 edition)"
+    },
+    "cc": {
+      "name": "Random verse from Śrī Caitanya-caritāmṛta"
+    },
+    "sb": {
+      "name": "Random verse from Śrīmad-Bhāgavatam (Bhāgavata Purāṇa)"
+    },
+    "transcripts": {
+      "name": "Random lecture by Śrīla Prabhupāda"
+    },
+    "letters": {
+      "name": "Random letter from Śrīla Prabhupāda"
+    }
+  },
+  {
+    "id": "ru",
+    "name": "Русский (Russian)",
+    "bg": {
+      "name": "Бхагавад-гита как она есть"
+    },
+    "cc": {
+      "name": "Шри Чайтанья-чаритамрита"
+    },
+    "sb": {
+      "name": "Шримад-Бхагаватам"
+    }
+  },
+  {
+    "id": "cs",
+    "name": "Čeština (Czech)",
+    "bg": {
+      "name": "Bhagavad-gītā taková, jaká je"
+    },
+    "cc": {
+      "name": "Śrī Caitanya-caritāmṛta"
+    },
+    "sb": {
+      "name": "Śrīmad-Bhāgavatam"
+    }
+  },
+  {
+    "id": "es",
+    "name": "Español (Spanish)",
+    "bg": {
+      "name": "El Bhagavad-gītā tal como es"
+    },
+    "cc": {
+      "name": "Śrī Caitanya-caritāmṛta"
+    },
+    "sb": {
+      "name": "Śrīmad-Bhāgavatam",
+      "limit": 10
+    }
+  },
+  {
+    "id": "pt-br",
+    "name": "Português (Portuguese)",
+    "bg": {
+      "name": "Bhagavad-gītā Como Ele É"
+    },
+    "sb": {
+      "name": "Śrīmad-Bhāgavatam (Bhāgavata Purāṇa)",
+      "limit": 5
+    }
+  },
+  {
+    "id": "uk",
+    "name": "українська мова (Ukrainian)",
+    "bg": {
+      "name": "Бгаґавад-ґı̄та̄ як вона є"
+    },
+    "sb": {
+      "name": "Шрімад-Бгаґаватам (Бгаґавата Пурана)",
+      "limit": 3
+    }
+  },
+  {
+    "id": "bg",
+    "name": "Български (Bulgarian)",
+    "bg": {
+      "name": "Бхагавад-гӣта̄ такава, каквато е"
+    },
+    "sb": {
+      "name": "Шрӣмад Бха̄гаватам",
+      "limit": 3
+    }
+  },
+  {
+    "id": "nl",
+    "name": "Nederlands (Dutch)",
+    "bg": {
+      "name": "Bhagavad-gītā zoals ze is"
+    }
+  },
+  {
+    "id": "da",
+    "name": "Dansk (Danish)",
+    "bg": {
+      "name": "Bhagavad-gītā som den er"
+    }
+  },
+  {
+    "id": "et",
+    "name": "Eesti keel (Estonian)",
+    "bg": {
+      "name": "Bhagavad-gītā nii nagu see on"
+    }
+  },
+  {
+    "id": "sk",
+    "name": "Slovenčina (Slovak)",
+    "bg": {
+      "name": "Bhagavad-gītā — taká, aká je"
+    }
+  },
+  {
+    "id": "de",
+    "name": "Deutsch (German)",
+    "bg": {
+      "name": "Bhagavad-gītā wie sie ist"
+    }
+  },
+  {
+    "id": "lt",
+    "name": "Lietuvių kalba (Lithuanian)",
+    "bg": {
+      "name": "Bhagavad-gītā, kokia ji yra"
+    }
+  },
+  {
+    "id": "hu",
+    "name": "Magyar (Hungarian)",
+    "bg": {
+      "name": "A Bhagavad-gita úgy, ahogy van"
+    }
+  },
+  {
+    "id": "fr",
+    "name": "Français (French)",
+    "bg": {
+      "name": "La Bhagavad-gītā telle qu'elle est"
+    }
+  },
+  {
+    "id": "ko",
+    "name": "한국어 (Korean)",
+    "bg": {
+      "name": "바가바드 기따 있는 그대로"
+    }
+  }
+]
