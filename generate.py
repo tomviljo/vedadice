@@ -77,7 +77,7 @@ def main():
         root_redirector_template = f.read()
 
     for output_dir in ['output_debug', 'output_local', 'output_public']:
-        link_suffix = '' if output_dir == 'output_public' else '/index.html'
+        index_html_if_local = '' if output_dir == 'output_public' else 'index.html'
 
         # Create directory tree
 
@@ -100,7 +100,7 @@ def main():
         # Make index.html
 
         def link_html(language, book):
-            link = f'{language["id"]}/{book}{link_suffix}'
+            link = f'{language["id"]}/{book}/{index_html_if_local}'
             return f'          <div><a href="{link}">{language[book]["name"]}</a></div>\n'
 
         def language_html(language):
