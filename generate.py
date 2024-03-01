@@ -83,10 +83,19 @@ def main():
 
         shutil.rmtree(output_dir, ignore_errors=True)
         os.mkdir(output_dir)
+        os.mkdir(f'{output_dir}/assets')
 
-        shutil.copytree('assets', f'{output_dir}/assets')
-        for file in os.listdir('favicon'):
-            shutil.copy(f'favicon/{file}', f'{output_dir}/{file}')
+        # Copy static files
+
+        shutil.copy(f'favicon/android-chrome-192x192.png', f'{output_dir}/')
+        shutil.copy(f'favicon/android-chrome-512x512.png', f'{output_dir}/')
+        shutil.copy(f'favicon/apple-touch-icon.png', f'{output_dir}/')
+        shutil.copy(f'favicon/favicon-16x16.png', f'{output_dir}/')
+        shutil.copy(f'favicon/favicon-32x32.png', f'{output_dir}/')
+        shutil.copy(f'favicon/favicon.ico', f'{output_dir}/')
+        shutil.copy(f'favicon/site.webmanifest', f'{output_dir}/')
+
+        shutil.copy(f'assets/dice.svg', f'{output_dir}/assets/')
 
         # Make index.html
 
@@ -149,8 +158,10 @@ def main():
 
         # Copy subpages
 
-        for page in subpages:
-            shutil.copytree(page, f'{output_dir}/en/{page}')
+        os.mkdir(f'{output_dir}/en/kala')
+        shutil.copy(f'kala/index.html', f'{output_dir}/en/kala/')
+        shutil.copy(f'kala/script.js', f'{output_dir}/en/kala/')
+        shutil.copy(f'kala/style.css', f'{output_dir}/en/kala/')
 
 if __name__ == '__main__':
     main()
