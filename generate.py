@@ -47,8 +47,8 @@ def main():
     books = [
         'bg',
         'bg1972',
-        'cc',
         'sb',
+        'cc',
         'transcripts',
         'letters'
     ]
@@ -56,8 +56,8 @@ def main():
     compressed_paths_by_book = {
         'bg':          compress_paths_from_file('paths/bg.txt'),
         'bg1972':      compress_paths_from_file('paths/bg1972.txt'),
-        'cc':          compress_paths_from_file('paths/cc.txt'),
         'sb':          compress_paths_from_file('paths/sb.txt'),
+        'cc':          compress_paths_from_file('paths/cc.txt'),
         'transcripts': compress_paths_from_file('paths/transcripts.txt'),
         'letters':     compress_paths_from_file('paths/letters.txt')
     }
