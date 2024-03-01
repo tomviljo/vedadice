@@ -1,0 +1,65 @@
+body {
+  font-family: "Old Standard TT", serif;
+  font-weight: 400;
+  margin: 1em;
+  text-align: justify;
+  word-wrap: break-word;
+}
+h1 {
+  font-size: 400%;
+  text-align: center;
+}
+.quote {
+  font-style: italic;
+  margin-left: 2em;
+}
+.clocks {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.clock {
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 5px;
+}
+canvas {
+  display: block;
+  width: 80vw;
+  height: 80vw;
+  margin: 5px;
+}
+.caption {
+  width: 80vw;
+  margin: 5px;
+}
+/* (100-90)vw > (2*15+2*5)px => 10vw > 40px => 100vw > 400px */
+@media screen and (min-width: 400px) {
+  canvas {
+    width: 90vw;
+    height: 90vw;
+  }
+  .caption {
+    width: 90vw;
+  }
+}
+/* (100-2*45)vw > (2*15+4*5)px => 10vw > 50px => 100vw > 500px */
+@media screen and (min-width: 600px) {
+  canvas {
+    width: 45vw;
+    height: 45vw;
+  }
+  .caption {
+    width: 45vw;
+  }
+}
+/* (100-4*22)vw > (2*15+8*5)px => 12vw > 70px => 100vw > ~583px */
+@media screen and (min-width: 800px) {
+  canvas {
+    width: 22vw;
+    height: 22vw;
+  }
+  .caption {
+    width: 22vw;
+  }
+}

@@ -62,6 +62,10 @@ def main():
         'letters':     compress_paths_from_file('paths/letters.txt')
     }
 
+    subpages = [
+        'kala'
+    ]
+
     with open('templates/index.html') as f:
         index_template = Template(f.read())
 
@@ -87,7 +91,7 @@ def main():
             return f'          <div><a href="{link}">{language[book]["name"]}</a></div>\n'
 
         def language_html(language):
-            books_in_lang = [book for book in books if book in language]
+            books_in_lang = [book for book in books + subpages if book in language]
             return \
                 f'        <div class="col-lg-6">\n' + \
                 f'          <h3>{language["name"]}</h3>\n' + \
@@ -134,6 +138,11 @@ def main():
                             debug_links='true' if output_dir == 'output_debug' else 'false'
                         )
                     )
+
+        # Copy subpages
+
+        for page in subpages:
+            shutil.copytree(page, f'{output_dir}/en/{page}')
 
 if __name__ == '__main__':
     main()

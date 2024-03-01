@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vedic Clock</title>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="manifest" href="../../site.webmanifest">
+    <!-- Normalize -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400&display=swap" rel="stylesheet">
+    <!-- CSS of this page -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- Javascript of this page -->
+    <script type="text/javascript" src="script.js"></script>
+  </head>
+  <body onload="start()">
+    <h1>Vedic Clock</h1>
+    <p>
+      This is an illustration of what a Vedic clock might look like, based on A. C. Bhaktivedanta Swami's translation of the eleventh chapter of the third canto of the Śrīmad-Bhāgavatam. It features all time scales, from the shortest to the longest, just like our Western clock has arms for hours, minutes and seconds. It also demonstrates how the Vedic understanding of time is cyclic rather than linear. Even the longest cycle, the lifetime of Brahmā, is repeated endlessly, without beginning or end.
+    </p>
+    <div class="clocks">
+      <div class="clock">
+        <canvas id="c1"></canvas>
+        <div class="caption">
+          1 truṭi ≈ 0.59 milliseconds
+        </div>
+      </div><div class="clock">
+        <canvas id="c2"></canvas>
+        <div class="caption">
+          1 vedha = 100 truṭi ≈ 59 milliseconds
+        </div>
+      </div><div class="clock">
+        <canvas id="c3"></canvas>
+        <div class="caption">
+          1 lava = 3 vedha ≈ 0.18 seconds
+        </div>
+      </div><div class="clock">
+        <canvas id="c4"></canvas>
+        <div class="caption">
+          1 nimeṣa = 3 lava ≈ 0.53 seconds
+        </div>
+      </div><div class="clock">
+        <canvas id="c5"></canvas>
+        <div class="caption">
+          1 kṣaṇa = 3 nimeṣa = 1.6 seconds
+        </div>
+      </div><div class="clock">
+        <canvas id="c6"></canvas>
+        <div class="caption">
+          1 kāṣṭhā = 5 kṣaṇa = 8 seconds
+        </div>
+      </div><div class="clock">
+        <canvas id="c7"></canvas>
+        <div class="caption">
+          1 laghu = 15 kāṣṭhā = 2 minutes
+        </div>
+      </div><div class="clock">
+        <canvas id="c8"></canvas>
+        <div class="caption">
+          1 daṇḍa = 15 laghu = 30 minutes
+        </div>
+      </div><div class="clock">
+        <canvas id="c9"></canvas>
+        <div class="caption">
+          1 muhūrta = 2 daṇḍa = 1 hour
+        </div>
+      </div><div class="clock">
+        <canvas id="c10"></canvas>
+        <div class="caption">
+          1 yāma = 3 muhūrta, or 6 daṇḍa = 3 hours
+        </div>
+      </div><div class="clock">
+        <canvas id="c11"></canvas>
+        <div class="caption">
+          1 ahanī (day) = 8 yāma = 24 hours
+        </div>
+      </div><div class="clock">
+        <canvas id="c12"></canvas>
+        <div class="caption">
+          1 pakṣa (fortnight) = 15 ahanī = 15 days (day or night on pitā planets)
+        </div>
+      </div><div class="clock">
+        <canvas id="c13"></canvas>
+        <div class="caption">
+          1 māsa (month) = 2 pakṣa = 30 days (day and night on pitā planets)
+        </div>
+      </div><div class="clock">
+        <canvas id="c14"></canvas>
+        <div class="caption">
+          1 ritu (season) = 2 māsa = 60 days
+        </div>
+      </div><div class="clock">
+        <canvas id="c15"></canvas>
+        <div class="caption">
+          1 ayana (sun movement) = 3 ritu = 180 days
+        </div>
+      </div><div class="clock">
+        <canvas id="c16"></canvas>
+        <div class="caption">
+          1 saṁvatsara (year) = 2 ayana = 360 days (day and night on heavenly planets)
+        </div>
+      </div><div class="clock">
+        <canvas id="c17"></canvas>
+        <div class="caption">
+          1 year of the demigods = 360 saṁvatsara = 360 years
+        </div>
+      </div><div class="clock">
+        <canvas id="c18"></canvas>
+        <div class="caption">
+          1 mahā-yuga = 12,000 years of the demigods = 4,320,000 years
+        </div>
+      </div><div class="clock">
+        <canvas id="c19"></canvas>
+        <div class="caption">
+          1 manvantara (lifespan of Manu) = 71 mahā-yuga = 306,720,000 years
+        </div>
+      </div><div class="clock">
+        <canvas id="c20"></canvas>
+        <div class="caption">
+          1 kalpa (day or night of Brahmā) = 1000 mahā-yuga, or 14 manvantara plus 15 sandhyā = 4,320,000,000 years
+        </div>
+      </div><div class="clock">
+        <canvas id="c21"></canvas>
+        <div class="caption">
+          1 day and night of Brahmā = 2 kalpa = 8,640,000,000 years
+        </div>
+      </div><div class="clock">
+        <canvas id="c22"></canvas>
+        <div class="caption">
+          1 month of Brahmā = 30 days and nights of Brahmā = 259,200,000,000 years
+        </div>
+      </div><div class="clock">
+        <canvas id="c23"></canvas>
+        <div class="caption">
+          1 year of Brahmā = 12 months of Brahmā = 3,110,400,000,000 years
+        </div>
+      </div><div class="clock">
+        <canvas id="c24"></canvas>
+        <div class="caption">
+          1 parārdha = 50 years of Brahmā = 156,764,160,000,000 years
+        </div>
+      </div><div class="clock">
+        <canvas id="c25"></canvas>
+        <div class="caption">
+          1 mahā-kalpa (lifespan of Brahmā) = 2 parārdha, or 100 years of Brahmā = 313,528,320,000,000 years
+        </div>
+      </div>
+    </div>
+    <p class="quote">
+      “The duration of the two parts of Brahmā’s life, as above mentioned, is calculated to be equal to one nimeṣa (less than a second) for the Supreme Personality of Godhead, who is unchanging and unlimited and is the cause of all causes of the universe.”
+      <br>
+      — Śrīmad-Bhāgavatam, canto 3, chapter 11, verse 38
+    </p>
+    <p>
+      The reasons that this is merely an approximation, and a "Vedic wristwatch" would be difficult to produce, are mainly:
+    </p>
+    <ul>
+      <li>Each day begins at sunrise, which varies depending on location and time of year</li>
+      <li>The lunar cycle is not exactly 30 days, so the length of a month may vary</li>
+      <li>The solar year is slightly more than twelve lunar cycles, therefore a leap month (13th month) is sometimes added to keep the months synchronized with the solar year</li>
+    </ul>
+    <p>
+      There are Vedic calendars, but they are calculated separately for each location, depending on astronomical observations or calculations of the time of sunrise at that location, and the phase of the moon at that time.
+    </p>
+    <p>
+      Sources of information:
+    </p>
+    <ul>
+      <li><a href="https://www.vedabase.com/en/sb/3/11">https://www.vedabase.com/en/sb/3/11</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Hindu_units_of_time">https://en.wikipedia.org/wiki/Hindu_units_of_time</a></li>
+    </ul>
+    <p>
+      <a href="/">Back to Veda Dice</a>
+    </p>
+  </body>
+</html>
