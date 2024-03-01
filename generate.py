@@ -72,6 +72,10 @@ def main():
     with open('templates/redirector.html') as f:
         redirector_template = Template(f.read())
 
+    # Currently not an actual template, just a static page
+    with open('templates/root_redirector.html') as f:
+        root_redirector_template = f.read()
+
     for output_dir in ['output_debug', 'output_local', 'output_public']:
         link_suffix = '' if output_dir == 'output_public' else '/index.html'
 
@@ -107,6 +111,10 @@ def main():
 
         for language in languages:
             os.mkdir(f'{output_dir}/{language["id"]}')
+
+            # A previous version had per-language pages. Redirect to new root page.
+            with open(f'{output_dir}/{language["id"]}/index.html', 'w') as f:
+                f.write(root_redirector_template)
 
             for book in books:
                 if book not in language:
