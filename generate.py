@@ -6,7 +6,7 @@ from string import Template
 
 def compress_paths(paths):
     def flush_range():
-        if range_prefix:
+        if range_prefix is not None:
             # Flush range
             if range_first == range_last:
                 result.append(f'{range_prefix}{range_first}')
@@ -15,10 +15,10 @@ def compress_paths(paths):
     result = []
     range_prefix = None
     for path in paths:
-        m = re.search('^(.*[-/])([0-9]+)$', path)
+        m = re.search('^(.*[-/]|)([0-9]+)$', path)
         if m:
             # Joinable path
-            if m.group(1) == range_prefix:
+            if range_prefix is not None and m.group(1) == range_prefix and int(m.group(2)) == range_last + 1:
                 # Add to range
                 range_last = int(m.group(2))
             else:
@@ -48,6 +48,7 @@ def main():
         'bg',
         'bg1972',
         'sb',
+        'cb',
         'cc',
         'transcripts',
         'letters'
@@ -57,6 +58,7 @@ def main():
         'bg':          compress_paths_from_file('paths/bg.txt'),
         'bg1972':      compress_paths_from_file('paths/bg1972.txt'),
         'sb':          compress_paths_from_file('paths/sb.txt'),
+        'cb':          compress_paths_from_file('paths/cb.txt'),
         'cc':          compress_paths_from_file('paths/cc.txt'),
         'transcripts': compress_paths_from_file('paths/transcripts.txt'),
         'letters':     compress_paths_from_file('paths/letters.txt')
@@ -142,8 +144,11 @@ def main():
                 os.mkdir(f'{output_dir}/{language["id"]}/{book}')
                 with open(f'{output_dir}/{language["id"]}/{book}/index.html', 'w') as f:
                     if book == 'bg1972':
-                        url_prefix = f'https://vanisource.org/wiki/BG_'
-                        url_suffix = f'_(1972)'
+                        url_prefix = 'https://vanisource.org/wiki/BG_'
+                        url_suffix = '_(1972)'
+                    elif book == 'cb':
+                        url_prefix = 'https://www.wisdomlib.org/hinduism/book/chaitanya-bhagavata/d/doc'
+                        url_suffix = '.html'
                     else:
                         url_prefix = f'https://vedabase.io/{language["id"]}/library/{book}/'
                         url_suffix = ''
